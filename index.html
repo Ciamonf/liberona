@@ -1,88 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Para Ti ❤️</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff9ecf,#ffc8dd,#d8b4fe);
-overflow:hidden;
-}
-
-.contenedor{
-text-align:center;
-}
-
-h1{
-font-size:45px;
-color:white;
-margin-bottom:15px;
-}
-
-p{
-color:white;
-font-size:20px;
-margin-bottom:40px;
-}
-
-.botones{
-display:flex;
-justify-content:center;
-gap:20px;
-position:relative;
-}
-
-button{
-border:none;
-padding:15px 45px;
-font-size:22px;
-border-radius:50px;
-cursor:pointer;
-transition:all .5s ease;
-font-weight:bold;
-}
-
-#yes{
-background:#22c55e;
-color:white;
-}
-
-#no{
-background:#ef4444;
-color:white;
-}
-</style>
-</head>
-
-<body>
-
-<div class="contenedor">
-
-<h1>🤗 ¿Tú me amas? 🤗</h1>
-
-<p id="mensaje">Decime la posta 😃</p>
-
-<div class="botones">
-<button id="yes">YES</button>
-<button id="no">NO</button>
-</div>
-
-</div>
-
 <script>
 let intentos = 0;
 
@@ -97,16 +12,7 @@ const frases = [
 "..."
 ];
 
-const posiciones = [
-{left:"15%", top:"20%"},
-{left:"75%", top:"20%"},
-{left:"75%", top:"70%"},
-{left:"15%", top:"70%"},
-{left:"10%", top:"45%"},
-{left:"80%", top:"45%"}
-];
-
-let posicion = 0;
+let subida = 0;
 
 // Empieza al lado de YES
 no.style.position = "relative";
@@ -121,21 +27,10 @@ mensaje.innerHTML = frases[intentos-1];
 
 yes.style.transform = "scale(" + (1 + intentos*0.15) + ")";
 
+subida += 50;
+
 no.style.transform =
-"translate(-50%, -50%) scale(" + (1 - intentos*0.1) + ")";
-
-no.style.position = "fixed";
-
-posicion++;
-
-if(posicion >= posiciones.length){
-posicion = 0;
-}
-
-setTimeout(()=>{
-no.style.left = posiciones[posicion].left;
-no.style.top = posiciones[posicion].top;
-},50);
+"translateY(-" + subida + "px) scale(" + (1 - intentos*0.1) + ")";
 
 if(intentos >= 5){
 no.style.opacity = "0";
@@ -155,6 +50,3 @@ mensaje.innerHTML = "🎁 Cargando los regalos... ❤️";
 
 };
 </script>
-
-</body>
-</html>
