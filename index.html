@@ -12,8 +12,10 @@ const frases = [
   "..."
 ];
 
-// Posición inicial
+// NO empieza al lado de YES
 no.style.position = "relative";
+no.style.display = "inline-block";
+no.style.marginLeft = "10px";
 
 no.onclick = function () {
 
@@ -26,10 +28,10 @@ no.onclick = function () {
   // YES crece
   yes.style.transform = "scale(" + (1 + intentos * 0.12) + ")";
 
-  // NO se hace un poquito más chico
+  // NO se hace más chico
   no.style.transform = "scale(" + (1 - intentos * 0.08) + ")";
 
-  // Se mueve entre lugares fijos
+  // Empieza a escapar después del primer click
   if (intentos == 1) {
     no.style.position = "fixed";
     no.style.left = "78%";
@@ -53,7 +55,7 @@ no.onclick = function () {
 
   if (intentos >= 5) {
     no.style.display = "none";
-    mensaje.innerHTML = "🫂💗 Nel, toma, elegí YES 🫂💗";
+    mensaje.innerHTML = "🫂💗 Elegí YES 🫂💗";
     yes.style.transform = "scale(1.6)";
   }
 
@@ -62,8 +64,6 @@ no.onclick = function () {
 yes.onclick = function () {
 
   mensaje.innerHTML = "🎁 Cargando los regalos... ❤️";
-
-  // Después pondremos aquí la pantalla de los regalos.
 
 };
 </script>
