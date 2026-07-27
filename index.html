@@ -3,72 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz 4 Meses ❤️</title>
+
+<title>Para Ti ❤️</title>
 
 <style>
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#ffb6c1,#ffd6e7,#e6c7ff);
+}
+
+body{
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-text-align:center;
+background:linear-gradient(135deg,#ff9ecf,#ffc8dd,#d8b4fe);
+overflow:hidden;
 }
 
 .contenedor{
-background:rgba(255,255,255,.85);
-padding:30px;
-border-radius:20px;
-box-shadow:0 0 20px rgba(0,0,0,.2);
-max-width:400px;
+text-align:center;
 }
 
 h1{
-color:#ff3b7d;
+font-size:45px;
+color:white;
+margin-bottom:15px;
 }
 
 p{
-color:#444;
+color:white;
+font-size:18px;
+margin-bottom:40px;
 }
 
-.regalos{
+.botones{
 display:flex;
-justify-content:space-around;
-margin-top:30px;
-font-size:60px;
+justify-content:center;
+gap:25px;
 }
 
-.regalo{
+button{
+border:none;
+padding:15px 45px;
+font-size:22px;
+border-radius:50px;
 cursor:pointer;
 transition:.3s;
+font-weight:bold;
 }
 
-.regalo:hover{
-transform:scale(1.2);
+#yes{
+background:#22c55e;
+color:white;
+}
+
+#no{
+background:#ef4444;
+color:white;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="contenedor">
 
-<h1>💖 Feliz 4 Meses 💖</h1>
+<h1>💖 ¿Tú me amas? 💖</h1>
 
-<p>
-Preparé tres pequeños regalos para ti.<br>
-Cada uno guarda una sorpresa especial. ❤️
-</p>
+<p>Responde con sinceridad ❤️</p>
 
-<div class="regalos">
-<div class="regalo">🎁</div>
-<div class="regalo">🎁</div>
-<div class="regalo">🎁</div>
+<div class="botones">
+<button id="yes">YES</button>
+<button id="no">NO</button>
 </div>
 
 </div>
 
 </body>
-  </html>
+</html>
