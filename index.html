@@ -64,7 +64,6 @@ color:white;
 #no{
 background:#ef4444;
 color:white;
-position:relative;
 }
 </style>
 </head>
@@ -95,8 +94,7 @@ const frases = [
 "Como que no!!? 😶",
 "...",
 "Creo que te equivocaste 💜🫰",
-"...",
-"Ya no tienes escapatoria 😆"
+"..."
 ];
 
 const posiciones = [
@@ -110,16 +108,14 @@ const posiciones = [
 
 let posicion = 0;
 
-no.style.position = "fixed";
-no.style.left = "50%";
-no.style.top = "60%";
-no.style.transform = "translate(-50%, -50%)";
+// Empieza al lado de YES
+no.style.position = "relative";
 
 no.onclick = function(){
 
 intentos++;
 
-if(intentos <= 5){
+if(intentos <= 4){
 mensaje.innerHTML = frases[intentos-1];
 }
 
@@ -127,6 +123,8 @@ yes.style.transform = "scale(" + (1 + intentos*0.15) + ")";
 
 no.style.transform =
 "translate(-50%, -50%) scale(" + (1 - intentos*0.1) + ")";
+
+no.style.position = "fixed";
 
 posicion++;
 
@@ -144,7 +142,7 @@ no.style.opacity = "0";
 
 setTimeout(()=>{
 no.style.display = "none";
-mensaje.innerHTML = "🫂💗 Nel, toma, elegí YES 🫂💗";
+mensaje.innerHTML = "🫂💗 Elegí YES 🫂💗";
 yes.style.transform = "scale(1.6)";
 },500);
 }
@@ -154,8 +152,6 @@ yes.style.transform = "scale(1.6)";
 yes.onclick = function(){
 
 mensaje.innerHTML = "🎁 Cargando los regalos... ❤️";
-
-// Aquí haremos aparecer la pantalla de los regalos.
 
 };
 </script>
