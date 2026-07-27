@@ -1,91 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Para Ti ❤️</title>
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#ff9ecf,#ffc8dd,#d8b4fe);
-overflow:hidden;
-}
-
-.contenedor{
-text-align:center;
-}
-
-h1{
-font-size:45px;
-color:white;
-margin-bottom:15px;
-}
-
-p{
-color:white;
-font-size:20px;
-margin-bottom:40px;
-}
-
-.botones{
-display:flex;
-justify-content:center;
-gap:20px;
-position:relative;
-}
-
-button{
-border:none;
-padding:15px 45px;
-font-size:22px;
-border-radius:50px;
-cursor:pointer;
-transition:0.3s;
-font-weight:bold;
-}
-
-#yes{
-background:#22c55e;
-color:white;
-}
-
-#no{
-background:#ef4444;
-color:white;
-position:relative;
-}
-</style>
-</head>
-
-<body>
-
-<div class="contenedor">
-
-<h1>💖 ¿Tú me amas? 💖</h1>
-
-<p id="mensaje">Responde con sinceridad ❤️</p>
-
-<div class="botones">
-<button id="yes">YES</button>
-<button id="no">NO</button>
-</div>
-
-</div>
-
 <script>
-
 let intentos = 0;
 
 const yes = document.getElementById("yes");
@@ -93,39 +6,33 @@ const no = document.getElementById("no");
 const mensaje = document.getElementById("mensaje");
 
 const frases = [
-"¿Segura? 🥺",
-"Creo que te equivocaste ❤️",
-"Piénsalo otra vez 😢",
-"No acepto esa respuesta 😤",
-"Ya no tienes opción 😆"
+  "¿Segura? 🥺",
+  "Creo que te equivocaste 💜",
+  "Piénsalo otra vez ",
+  "No acepto esa respuesta 😤",
+  "Ya no tienes opción xd😆"
 ];
 
-no.onclick = function(){
+no.onclick = function () {
+  intentos++;
 
-intentos++;
+  if (intentos <= 5) {
+    mensaje.innerHTML = frases[intentos - 1];
+  }
 
-mensaje.innerHTML = frases[intentos-1];
+  yes.style.transform = "scale(" + (1 + intentos * 0.2) + ")";
 
-yes.style.transform = `scale(${1 + intentos*0.2})`;
+  no.style.position = "fixed";
+  no.style.left = (Math.random() * 80) + "%";
+  no.style.top = (Math.random() * 80) + "%";
 
-no.style.position="fixed";
-no.style.left=Math.random()*80+"%";
-no.style.top=Math.random()*80+"%";
+  if (intentos >= 5) {
+    no.style.display = "none";
+    mensaje.innerHTML = "❤️ Solo queda una respuesta ❤️";
+  }
+};
 
-if(intentos>=5){
-no.style.display="none";
-mensaje.innerHTML="❤️ Solo queda una respuesta ❤️";
-}
-
-}
-
-yes.onclick = function(){
-
-alert("🎁 ¡Comienzan los regalos! ❤️");
-
-}
-
+yes.onclick = function () {
+  mensaje.innerHTML = "🎁 ¡Comienzan los regalos! ❤️";
+};
 </script>
-
-</body>
-</html>
