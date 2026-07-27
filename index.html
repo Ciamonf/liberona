@@ -12,10 +12,8 @@ const frases = [
   "..."
 ];
 
-// NO empieza al lado de YES
+// Posición inicial
 no.style.position = "relative";
-no.style.display = "inline-block";
-no.style.marginLeft = "10px";
 
 no.onclick = function () {
 
@@ -55,7 +53,7 @@ no.onclick = function () {
 
   if (intentos >= 5) {
     no.style.display = "none";
-    mensaje.innerHTML = "🫂💗 Elegí YES 🫂💗";
+    mensaje.innerHTML = "🫂💗 Nel, toma, elegí YES 🫂💗";
     yes.style.transform = "scale(1.6)";
   }
 
