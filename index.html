@@ -25,10 +25,13 @@ no.onclick = function () {
     mensaje.innerHTML = frases[intentos - 1];
   }
 
+  // YES crece
   yes.style.transform = "scale(" + (1 + intentos * 0.12) + ")";
 
+  // NO se hace un poquito más chico
   no.style.transform = "scale(" + (1 - intentos * 0.08) + ")";
 
+  // Se mueve entre lugares fijos
   if (intentos == 1) {
     no.style.position = "fixed";
     no.style.left = "78%";
@@ -59,6 +62,10 @@ no.onclick = function () {
 };
 
 yes.onclick = function () {
+
   mensaje.innerHTML = "🎁 Cargando los regalos... ❤️";
+
+  // Después pondremos aquí la pantalla de los regalos.
+
 };
 </script>
