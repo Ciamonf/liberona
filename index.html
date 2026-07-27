@@ -35,14 +35,15 @@ margin-bottom:15px;
 
 p{
 color:white;
-font-size:18px;
+font-size:20px;
 margin-bottom:40px;
 }
 
 .botones{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:20px;
+position:relative;
 }
 
 button{
@@ -51,7 +52,7 @@ padding:15px 45px;
 font-size:22px;
 border-radius:50px;
 cursor:pointer;
-transition:.3s;
+transition:0.3s;
 font-weight:bold;
 }
 
@@ -63,9 +64,9 @@ color:white;
 #no{
 background:#ef4444;
 color:white;
+position:relative;
 }
 </style>
-
 </head>
 
 <body>
@@ -74,7 +75,7 @@ color:white;
 
 <h1>💖 ¿Tú me amas? 💖</h1>
 
-<p>Responde con sinceridad ❤️</p>
+<p id="mensaje">Responde con sinceridad ❤️</p>
 
 <div class="botones">
 <button id="yes">YES</button>
@@ -82,6 +83,49 @@ color:white;
 </div>
 
 </div>
+
+<script>
+
+let intentos = 0;
+
+const yes = document.getElementById("yes");
+const no = document.getElementById("no");
+const mensaje = document.getElementById("mensaje");
+
+const frases = [
+"¿Segura? 🥺",
+"Creo que te equivocaste ❤️",
+"Piénsalo otra vez 😢",
+"No acepto esa respuesta 😤",
+"Ya no tienes opción 😆"
+];
+
+no.onclick = function(){
+
+intentos++;
+
+mensaje.innerHTML = frases[intentos-1];
+
+yes.style.transform = `scale(${1 + intentos*0.2})`;
+
+no.style.position="fixed";
+no.style.left=Math.random()*80+"%";
+no.style.top=Math.random()*80+"%";
+
+if(intentos>=5){
+no.style.display="none";
+mensaje.innerHTML="❤️ Solo queda una respuesta ❤️";
+}
+
+}
+
+yes.onclick = function(){
+
+alert("🎁 ¡Comienzan los regalos! ❤️");
+
+}
+
+</script>
 
 </body>
 </html>
