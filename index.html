@@ -1,4 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Ti ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9ecf,#ffc8dd,#d8b4fe);
+overflow:hidden;
+}
+
+.contenedor{
+text-align:center;
+}
+
+h1{
+font-size:45px;
+color:white;
+margin-bottom:15px;
+}
+
+p{
+color:white;
+font-size:20px;
+margin-bottom:40px;
+}
+
+.botones{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:70px;
+}
+
+button{
+border:none;
+padding:15px 45px;
+font-size:22px;
+border-radius:50px;
+cursor:pointer;
+transition:all .5s ease;
+font-weight:bold;
+}
+
+#yes{
+background:#22c55e;
+color:white;
+}
+
+#no{
+background:#ef4444;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🤗 ¿Tú me amas? 🤗</h1>
+
+<p id="mensaje">Decime la posta 😃</p>
+
+<div class="botones">
+<button id="yes">YES</button>
+<button id="no">NO</button>
+</div>
+
+</div>
+
 <script>
+
 let intentos = 0;
 
 const yes = document.getElementById("yes");
@@ -13,11 +99,11 @@ const frases = [
 ];
 
 const posiciones = [
-{left:"12%", top:"20%"},
-{left:"75%", top:"20%"},
-{left:"12%", top:"70%"},
-{left:"75%", top:"70%"},
-{left:"8%", top:"45%"}
+{left:"10%", top:"20%"},
+{left:"78%", top:"20%"},
+{left:"10%", top:"70%"},
+{left:"78%", top:"70%"},
+{left:"50%", top:"15%"}
 ];
 
 let posicion = 0;
@@ -26,35 +112,46 @@ no.onclick = function(){
 
 intentos++;
 
-if(intentos <= frases.length){
-mensaje.innerHTML = frases[intentos-1];
+if(intentos<=frases.length){
+mensaje.innerHTML=frases[intentos-1];
 }
 
-yes.style.transform = "scale(" + (1 + intentos*0.15) + ")";
-no.style.transform = "scale(" + (1 - intentos*0.1) + ")";
+yes.style.transform="scale("+(1+intentos*0.15)+")";
 
-no.style.position = "fixed";
+no.style.position="fixed";
 
-posicion = (posicion + 1) % posiciones.length;
+posicion=(posicion+1)%posiciones.length;
 
-no.style.left = posiciones[posicion].left;
-no.style.top = posiciones[posicion].top;
+no.style.left=posiciones[posicion].left;
+no.style.top=posiciones[posicion].top;
 
-if(intentos >= 5){
-no.style.opacity = "0";
+no.style.transform="translate(-50%,-50%) scale("+(1-intentos*0.08)+")";
 
-setTimeout(()=>{
+if(intentos>=5){
+
+no.style.opacity="0";
+
+setTimeout(function(){
+
 no.style.display="none";
+
 mensaje.innerHTML="🫂💗 Nel, toma, elegí YES 🫂💗";
+
 yes.style.transform="scale(1.6)";
+
 },500);
+
 }
 
 };
 
-yes.onclick = function(){
+yes.onclick=function(){
 
 mensaje.innerHTML="🎁 Cargando los regalos... ❤️";
 
 };
+
 </script>
+
+</body>
+</html>
