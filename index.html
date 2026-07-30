@@ -98,49 +98,21 @@ const frases = [
 "..."
 ];
 
-const posiciones = [
-{left:"10%", top:"20%"},
-{left:"78%", top:"20%"},
-{left:"10%", top:"70%"},
-{left:"78%", top:"70%"},
-{left:"50%", top:"15%"}
-];
-
-let posicion = 0;
-
 no.onclick = function(){
 
 intentos++;
 
-if(intentos<=frases.length){
+if(intentos<=4){
 mensaje.innerHTML=frases[intentos-1];
 }
 
 yes.style.transform="scale("+(1+intentos*0.15)+")";
-
-no.style.position="fixed";
-
-posicion=(posicion+1)%posiciones.length;
-
-no.style.left=posiciones[posicion].left;
-no.style.top=posiciones[posicion].top;
-
-no.style.transform="translate(-50%,-50%) scale("+(1-intentos*0.08)+")";
+no.style.transform="scale("+(1-intentos*0.15)+")";
 
 if(intentos>=5){
-
-no.style.opacity="0";
-
-setTimeout(function(){
-
 no.style.display="none";
-
 mensaje.innerHTML="🫂💗 Nel, toma, elegí YES 🫂💗";
-
 yes.style.transform="scale(1.6)";
-
-},500);
-
 }
 
 };
